@@ -1,6 +1,6 @@
 # ShoppyGlobe E-commerce Application
 
-A modern, responsive e-commerce application built with React, JavaScript, Redux Toolkit, and React Router. This project demonstrates advanced React concepts including state management, routing, custom hooks, performance optimization, and responsive design.
+A modern, responsive e-commerce application built with React, JavaScript, Vite, Redux Toolkit, and React Router. This project demonstrates advanced React concepts including state management, routing, custom hooks, performance optimization, and responsive design.
 
 ## 🚀 Features
 
@@ -49,6 +49,7 @@ A modern, responsive e-commerce application built with React, JavaScript, Redux 
 ## 🛠️ Technologies Used
 
 - **React 18** - Frontend framework
+- **Vite** - Modern build tool and development server
 - **JavaScript (ES6+)** - Modern JavaScript with JSDoc for documentation
 - **Redux Toolkit** - State management
 - **React Router** - Client-side routing
@@ -70,11 +71,11 @@ A modern, responsive e-commerce application built with React, JavaScript, Redux 
 
 3. **Start the development server**
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:3000` (opens automatically)
 
 ## 🏗️ Project Structure
 
@@ -143,10 +144,10 @@ shoppyglobe/
 
 ## 🚀 Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
+- `npm run dev` - Runs the app in development mode with Vite
 - `npm run build` - Builds the app for production
-- `npm run eject` - Ejects from Create React App (one-way operation)
+- `npm run preview` - Preview the production build locally
+- `npm test` - Launches the test runner
 
 ## 📱 Responsive Design
 
