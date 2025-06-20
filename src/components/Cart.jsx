@@ -1,14 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from '../store';
 import { clearCart } from '../store/cartSlice';
 import CartItem from './CartItem';
 import './Cart.css';
 
 // Cart component that displays cart items and total amounts
-const Cart: React.FC = () => {
-  const { items, totalQuantity, totalAmount } = useSelector((state: RootState) => state.cart);
+const Cart = () => {
+  const { items, totalQuantity, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const handleClearCart = () => {

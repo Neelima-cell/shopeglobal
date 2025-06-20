@@ -39,7 +39,7 @@ const NotFound = React.lazy(() =>
 );
 
 // Loading component for Suspense fallback
-const LoadingSpinner: React.FC = () => (
+const LoadingSpinner = () => (
   <div className="loading-container">
     <div className="loading-spinner"></div>
     <p>Loading...</p>
@@ -47,20 +47,17 @@ const LoadingSpinner: React.FC = () => (
 );
 
 // Error Boundary Component
-class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { hasError: boolean }
-> {
-  constructor(props: { children: React.ReactNode }) {
+class ErrorBoundary extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(_: Error) {
+  static getDerivedStateFromError(_) {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  componentDidCatch(error, errorInfo) {
     console.error('Error caught by boundary:', error, errorInfo);
   }
 
@@ -107,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

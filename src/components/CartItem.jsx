@@ -1,18 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { updateQuantity, removeFromCart } from '../store/cartSlice';
-import { CartItem as CartItemType } from '../types';
 import './CartItem.css';
 
-interface CartItemProps {
-  item: CartItemType;
-}
-
 // CartItem component representing a single item in the cart
-const CartItem: React.FC<CartItemProps> = ({ item }) => {
+const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  const handleQuantityChange = (newQuantity: number) => {
+  const handleQuantityChange = (newQuantity) => {
     if (newQuantity > 0) {
       dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
     }

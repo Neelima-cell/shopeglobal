@@ -6,8 +6,8 @@ import { addToCart } from '../store/cartSlice';
 import './ProductDetail.css';
 
 // ProductDetail component that shows detailed information about a selected product
-const ProductDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+const ProductDetail = () => {
+  const { id } = useParams();
   const { product, loading, error } = useProduct(id);
   const dispatch = useDispatch();
 

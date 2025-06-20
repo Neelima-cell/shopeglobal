@@ -1,7 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartItem, CartState } from '../types';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: CartState = {
+const initialState = {
   items: [],
   totalQuantity: 0,
   totalAmount: 0,
@@ -12,7 +11,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     // Add item to cart or increase quantity if item already exists
-    addToCart: (state, action: PayloadAction<{ id: number; title: string; price: number; thumbnail: string }>) => {
+    addToCart: (state, action) => {
       const { id, title, price, thumbnail } = action.payload;
       const existingItem = state.items.find(item => item.id === id);
 
@@ -36,7 +35,7 @@ const cartSlice = createSlice({
     },
 
     // Remove item from cart completely
-    removeFromCart: (state, action: PayloadAction<number>) => {
+    removeFromCart: (state, action) => {
       const id = action.payload;
       state.items = state.items.filter(item => item.id !== id);
 
@@ -46,7 +45,7 @@ const cartSlice = createSlice({
     },
 
     // Update item quantity
-    updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
+    updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
       const item = state.items.find(item => item.id === id);
 

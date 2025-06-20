@@ -4,7 +4,7 @@ import ProductItem from './ProductItem';
 import './ProductList.css';
 
 // ProductList component that displays filtered list of products
-const ProductList: React.FC = () => {
+const ProductList = () => {
   const { products, loading, error } = useProducts();
   const [searchTerm, setSearchTerm] = useState('');
 

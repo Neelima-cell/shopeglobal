@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
 import './Header.css';
 
 // Header component with navigation and cart icon
-const Header: React.FC = () => {
-  const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
+const Header = () => {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
     <header className="header">

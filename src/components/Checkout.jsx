@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from '../store';
 import './Checkout.css';
 
 // Checkout component for order completion
-const Checkout: React.FC = () => {
-  const { items, totalAmount } = useSelector((state: RootState) => state.cart);
+const Checkout = () => {
+  const { items, totalAmount } = useSelector((state) => state.cart);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -19,7 +18,7 @@ const Checkout: React.FC = () => {
     cvv: '',
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -27,7 +26,7 @@ const Checkout: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // In a real application, you would process the order here
     alert('Order placed successfully! Thank you for your purchase.');

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Product, ProductsResponse } from '../types';
 
-// Custom hook for fetching products with error handling and loading states
+/**
+ * Custom hook for fetching products with error handling and loading states
+ * @returns {Object} Object containing products array, loading state, and error state
+ */
 export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -19,7 +21,7 @@ export const useProducts = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const data: ProductsResponse = await response.json();
+        const data = await response.json();
         setProducts(data.products);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred while fetching products');
@@ -35,11 +37,15 @@ export const useProducts = () => {
   return { products, loading, error };
 };
 
-// Custom hook for fetching a single product by ID
-export const useProduct = (id: string | undefined) => {
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+/**
+ * Custom hook for fetching a single product by ID
+ * @param {string|undefined} id - The product ID to fetch
+ * @returns {Object} Object containing product data, loading state, and error state
+ */
+export const useProduct = (id) => {
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!id) {
@@ -58,7 +64,7 @@ export const useProduct = (id: string | undefined) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const data: Product = await response.json();
+        const data = await response.json();
         setProduct(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred while fetching product details');

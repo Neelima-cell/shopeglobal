@@ -2,18 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
-import { Product } from '../types';
 import './ProductItem.css';
 
-interface ProductItemProps {
-  product: Product;
-}
-
 // ProductItem component representing a single product with Add to Cart functionality
-const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = (e) => {
     e.preventDefault(); // Prevent navigation when clicking add to cart
     dispatch(addToCart({
       id: product.id,
